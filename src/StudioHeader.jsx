@@ -178,6 +178,7 @@ const StudioHeader = ({ intl, actionRowContent }) => {
     logoDestination: config.STUDIO_BASE_URL,
     loggedIn: authenticatedUser !== null,
     username: authenticatedUser !== null ? authenticatedUser.username : null,
+    displayname: authenticatedUser !== null ? authenticatedUser.displayname : null,
     avatar: authenticatedUser !== null ? authenticatedUser.avatar : null,
     actionRowContent,
     userMenu,

@@ -25,6 +25,7 @@ subscribe(APP_READY, () => {
         authenticatedUser: {
           userId: '123abc',
           username: 'testuser',
+          displayname: 'Test User',
           roles: [],
           administrator: false,
         },

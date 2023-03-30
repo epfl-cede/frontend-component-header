@@ -49,12 +49,13 @@ const LearningHeader = ({
           <span className="d-block m-0 font-weight-bold course-title">{courseTitle}</span>
         </div>
         {showUserDropdown && authenticatedUser && (
-        <AuthenticatedUserDropdown
-          username={authenticatedUser.username}
-        />
+          <AuthenticatedUserDropdown
+            username={authenticatedUser.username}
+            name={authenticatedUser.name}
+          />
         )}
         {showUserDropdown && !authenticatedUser && (
-        <AnonymousUserMenu />
+          <AnonymousUserMenu />
         )}
       </div>
     </header>

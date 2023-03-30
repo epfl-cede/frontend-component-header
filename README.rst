@@ -40,6 +40,8 @@ Environment Variables
 ====================
 
 * ``LMS_BASE_URL`` - The URL of the LMS of your Open edX instance.
+* ``CATALOG_BASE_URL`` - The URL of the Catalog of your Open edX instance.
+* ``CATALOG_ORGANIZATION_NAME`` - Catalog organization string
 * ``LOGOUT_URL`` - The URL of the API endpoint which performs a user logout.
 * ``LOGIN_URL`` - The URL of the login page where a user can sign into their account.
 * ``SITE_NAME`` - The user-facing name of the site, used as `alt` text on the logo in the header.

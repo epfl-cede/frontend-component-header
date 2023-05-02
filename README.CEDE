@@ -1,0 +1,16 @@
+node --version = v19.8.1
+npm --version = 9.5.1
+
+mkdir -p package
+
+rm -Rf node_modules dist/* package/*
+
+npm install
+
+npm run build
+
+cp -a dist package/
+
+cp LICENSE README.rst package/
+
+tar -czf frontend-component-header-3.1.0-epfl3.tgz package

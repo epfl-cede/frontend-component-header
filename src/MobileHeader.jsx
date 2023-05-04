@@ -89,6 +89,7 @@ class MobileHeader extends React.Component {
       loggedIn,
       avatar,
       username,
+      name,
       stickyOnMobile,
       intl,
       mainMenu,
@@ -139,7 +140,7 @@ class MobileHeader extends React.Component {
                 aria-label={intl.formatMessage(messages['header.label.account.menu'])}
                 title={intl.formatMessage(messages['header.label.account.menu'])}
               >
-                <Avatar size="1.5rem" src={avatar} alt={username} />
+                <Avatar size="1.5rem" src={avatar} alt={name} />
               </MenuTrigger>
               <MenuContent tag="ul" className="nav flex-column pin-left pin-right border-top shadow py-2">
                 {loggedIn ? this.renderUserMenuItems() : this.renderLoggedOutItems()}
@@ -173,6 +174,7 @@ MobileHeader.propTypes = {
   logoDestination: PropTypes.string,
   avatar: PropTypes.string,
   username: PropTypes.string,
+  name: PropTypes.string,
   loggedIn: PropTypes.bool,
   stickyOnMobile: PropTypes.bool,
 
@@ -189,6 +191,7 @@ MobileHeader.defaultProps = {
   logoDestination: null,
   avatar: null,
   username: null,
+  name: null,
   loggedIn: false,
   stickyOnMobile: true,
 

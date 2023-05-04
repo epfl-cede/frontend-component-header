@@ -14,6 +14,7 @@ describe('<StudioHeader />', () => {
             authenticatedUser: {
               userId: 'abc123',
               username: 'edX',
+              name: 'EdX',
               roles: [],
               administrator: false,
             },
@@ -64,6 +65,7 @@ describe('<StudioHeader />', () => {
             authenticatedUser: {
               userId: 'abc123',
               username: 'edX',
+              name: 'EdX',
               roles: [],
               administrator: false,
             },
@@ -111,6 +113,7 @@ describe('<StudioHeader />', () => {
             authenticatedUser: {
               userId: 'abc123',
               username: 'edX',
+              name: 'EdX',
               roles: [],
               administrator: false,
             },

@@ -12,7 +12,7 @@ describe('Header', () => {
 
   it('displays user button', () => {
     render(<Header />);
-    expect(screen.getByRole('button')).toHaveTextContent(authenticatedUser.username);
+    expect(screen.getByRole('button')).toHaveTextContent(authenticatedUser.name);
   });
 
   it('displays course data', () => {

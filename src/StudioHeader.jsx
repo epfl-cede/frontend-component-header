@@ -55,6 +55,7 @@ function StudioHeader({ intl, mainMenu, appMenu }) {
     logoDestination: config.STUDIO_BASE_URL,
     loggedIn: authenticatedUser !== null,
     username: authenticatedUser !== null ? authenticatedUser.username : null,
+    name: authenticatedUser !== null ? authenticatedUser.name : null,
     avatar: authenticatedUser !== null ? authenticatedUser.avatar : null,
     mainMenu,
     userMenu,

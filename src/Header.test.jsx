@@ -43,6 +43,7 @@ describe('<Header />', () => {
               authenticatedUser: {
                 userId: 'abc123',
                 username: 'edX',
+                name: 'EdX',
                 roles: [],
                 administrator: false,
               },
@@ -102,6 +103,7 @@ describe('<Header />', () => {
               authenticatedUser: {
                 userId: 'abc123',
                 username: 'edX',
+                name: 'EdX',
                 roles: [],
                 administrator: false,
               },

@@ -17,6 +17,8 @@ import messages from './Header.messages';
 
 ensureConfig([
   'LMS_BASE_URL',
+  'CATALOG_BASE_URL',
+  'CATALOG_ORGANIZATION_NAME',
   'LOGOUT_URL',
   'LOGIN_URL',
   'SITE_NAME',
@@ -33,13 +35,27 @@ subscribe(APP_CONFIG_INITIALIZED, () => {
 function Header({ intl }) {
   const { authenticatedUser, config } = useContext(AppContext);
 
-  const mainMenu = [
+  const mainMenu = config.CATALOG_BASE_URL === undefined ? [
     {
       type: 'item',
       href: `${config.LMS_BASE_URL}/dashboard`,
       content: intl.formatMessage(messages['header.links.courses']),
     },
+  ] : [
+    {
+      type: 'item',
+      href: `${config.CATALOG_BASE_URL}/courses/`,
+      content: intl.formatMessage(messages['header.links.courses.all']),
+    },
   ];
+
+  if (config.CATALOG_BASE_URL !== undefined && authenticatedUser !== null) {
+    mainMenu.unshift({
+      type: 'item',
+      href: `${config.CATALOG_BASE_URL}/dashboard/`,
+      content: intl.formatMessage(messages['header.links.courses.my']),
+    })
+  }
 
   const orderHistoryItem = {
     type: 'item',
@@ -50,7 +66,7 @@ function Header({ intl }) {
   const userMenu = authenticatedUser === null ? [] : [
     {
       type: 'item',
-      href: `${config.LMS_BASE_URL}/dashboard`,
+      href: `${config.CATALOG_BASE_URL}/dashboard/`,
       content: intl.formatMessage(messages['header.user.menu.dashboard']),
     },
     {
@@ -79,13 +95,13 @@ function Header({ intl }) {
     {
       type: 'item',
       href: config.LOGIN_URL,
-      content: intl.formatMessage(messages['header.user.menu.login']),
+      content: intl.formatMessage(messages['header.user.menu.signin']),
     },
-    {
+    /*{
       type: 'item',
       href: `${config.LMS_BASE_URL}/register`,
       content: intl.formatMessage(messages['header.user.menu.register']),
-    },
+    },*/
   ];
 
   const props = {

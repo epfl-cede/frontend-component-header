@@ -35,7 +35,7 @@ subscribe(APP_CONFIG_INITIALIZED, () => {
 function Header({ intl }) {
   const { authenticatedUser, config } = useContext(AppContext);
 
-  const mainMenu = config.CATALOG_BASE_URL === undefined ? [
+  var mainMenu = config.CATALOG_BASE_URL === undefined ? [
     {
       type: 'item',
       href: `${config.LMS_BASE_URL}/dashboard`,
@@ -104,10 +104,14 @@ function Header({ intl }) {
     },*/
   ];
 
+  const logoDestination = config.CATALOG_BASE_URL === undefined ?
+    `${getConfig().LMS_BASE_URL}/dashboard` :
+    `${config.CATALOG_BASE_URL}/courses/?organization=${config.CATALOG_ORGANIZATION_NAME}`
+
   const props = {
     logo: config.LOGO_URL,
     logoAltText: config.SITE_NAME,
-    logoDestination: `${config.LMS_BASE_URL}/dashboard`,
+    logoDestination: logoDestination,
     loggedIn: authenticatedUser !== null,
     username: authenticatedUser !== null ? authenticatedUser.username : null,
     name: authenticatedUser !== null ? authenticatedUser.name : null,

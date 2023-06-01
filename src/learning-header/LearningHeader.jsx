@@ -32,9 +32,9 @@ function LearningHeader({
 }) {
   const { authenticatedUser } = useContext(AppContext);
 
-  const logoDestination = config.CATALOG_BASE_URL === undefined ?
+  const logoDestination = getConfig().CATALOG_BASE_URL === undefined ?
     `${getConfig().LMS_BASE_URL}/dashboard` :
-    `${config.CATALOG_BASE_URL}/courses/?organization=${config.CATALOG_ORGANIZATION_NAME}`
+    `${getConfig().CATALOG_BASE_URL}/courses/?organization=${getConfig().CATALOG_ORGANIZATION_NAME}`
 
   const headerLogo = (
     <LinkedLogo

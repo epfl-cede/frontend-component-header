@@ -34,7 +34,7 @@ function LearningHeader({
 
   const logoDestination = getConfig().CATALOG_BASE_URL === undefined ?
     `${getConfig().LMS_BASE_URL}/dashboard` :
-    `${getConfig().CATALOG_BASE_URL}/courses/?organization=${getConfig().CATALOG_ORGANIZATION_NAME}`
+    `${getConfig().LMS_BASE_URL}/courses`
 
   const headerLogo = (
     <LinkedLogo

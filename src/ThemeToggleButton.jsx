@@ -18,15 +18,53 @@ const ThemeToggleButton = () => {
 
   const getCookieOptions = (serverURL) => ({ domain: serverURL.hostname, path: '/', expires: getCookieExpiry() });
 
+  const addDarkThemeToIframes = () => {
+    const iframes = document.getElementsByTagName('iframe');
+    const iframesLength = iframes.length;
+    if (iframesLength > 0) {
+      Array.from({ length: iframesLength }).forEach((_, ind) => {
+        const style = document.createElement('style');
+        style.textContent = `
+          body{
+            background-color: #0D0D0E;
+            color: #ccc;
+          }
+          a {color: #ccc;}
+          a:hover{color: #d3d3d3;}
+          `;
+        if (iframes[ind].contentDocument) { iframes[ind].contentDocument.head.appendChild(style); }
+      });
+    }
+  };
+
+  const removeDarkThemeFromiframes = () => {
+    const iframes = document.getElementsByTagName('iframe');
+    const iframesLength = iframes.length;
+
+    Array.from({ length: iframesLength }).forEach((_, ind) => {
+      if (iframes[ind].contentDocument) {
+        const iframeHead = iframes[ind].contentDocument.head;
+        const styleTag = Array.from(iframeHead.querySelectorAll('style')).find(
+          (style) => style.textContent.includes('background-color: #0D0D0E;') && style.textContent.includes('color: #ccc;'),
+        );
+        if (styleTag) {
+          styleTag.remove();
+        }
+      }
+    });
+  };
+
   const onToggleTheme = () => {
     const serverURL = new URL(getConfig().LMS_BASE_URL);
     let theme = '';
 
     if (cookies.get(themeCookie) === 'dark') {
       document.body.classList.remove('indigo-dark-theme');
+      removeDarkThemeFromiframes();
       theme = 'light';
     } else {
       document.body.classList.add('indigo-dark-theme');
+      addDarkThemeToIframes();
       theme = 'dark';
     }
     cookies.set(themeCookie, theme, getCookieOptions(serverURL));

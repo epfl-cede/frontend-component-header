@@ -42,7 +42,7 @@ Environment Variables
 * ``LMS_BASE_URL`` - The URL of the LMS of your Open edX instance.
 * ``LOGOUT_URL`` - The URL of the API endpoint which performs a user logout.
 * ``LOGIN_URL`` - The URL of the login page where a user can sign into their account.
-* ``SITE_NAME`` - The user-facing name of the site, used as `alt` text on the logo in the header.
+* ``SITE_NAME`` - The user-facing name of the site, used as `alt` text on the logo in the header. 
   Defaults to "localhost" in development.
 * ``LOGO_URL`` - The URL of the site's logo.  This logo is displayed in the header.
 * ``ORDER_HISTORY_URL`` - The URL of the order history page.

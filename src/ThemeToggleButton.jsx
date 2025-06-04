@@ -3,11 +3,13 @@ import { getConfig } from '@edx/frontend-platform';
 import Cookies from 'universal-cookie';
 import { Icon } from '@openedx/paragon';
 import { WbSunny, Nightlight } from '@openedx/paragon/icons';
+import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
+import messages from './Header.messages';
 
 const themeCookie = 'indigo-toggle-dark';
 const themeCookieExpiry = 90; // days
 
-const ThemeToggleButton = () => {
+const ThemeToggleButton = ({ intl }) => {
   const cookies = new Cookies();
   const isThemeToggleEnabled = getConfig().INDIGO_ENABLE_DARK_TOGGLE;
 
@@ -75,6 +77,12 @@ const ThemeToggleButton = () => {
     }
   };
 
+  const hanldeKeyUp = (event) => {
+    if (event.key === 'Enter') {
+      onToggleTheme();
+    }
+  };
+
   if (!isThemeToggleEnabled) {
     return <div />;
   }
@@ -84,7 +92,7 @@ const ThemeToggleButton = () => {
       <div className="light-theme-icon"><Icon src={WbSunny} /></div>
       <div className="toggle-switch">
         <label htmlFor="theme-toggle-checkbox" className="switch">
-          <input id="theme-toggle-checkbox" defaultChecked={cookies.get(themeCookie) === 'dark'} onChange={onToggleTheme} type="checkbox" />
+          <input id="theme-toggle-checkbox" defaultChecked={cookies.get(themeCookie) === 'dark'} onChange={onToggleTheme} onKeyUp={hanldeKeyUp} type="checkbox" title={intl.formatMessage(messages['header.user.theme'])} />
           <span className="slider round" />
         </label>
       </div>
@@ -93,4 +101,9 @@ const ThemeToggleButton = () => {
   );
 };
 
-export default ThemeToggleButton;
+ThemeToggleButton.propTypes = {
+  // i18n
+  intl: intlShape.isRequired,
+};
+
+export default injectIntl(ThemeToggleButton);

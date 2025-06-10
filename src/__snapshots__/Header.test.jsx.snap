@@ -19,6 +19,7 @@ exports[`<Header /> renders correctly for anonymous desktop 1`] = `
       <a
         className="logo"
         href="http://localhost:18000/dashboard"
+        title="edX"
       >
         <img
           alt="edX"
@@ -140,6 +141,7 @@ exports[`<Header /> renders correctly for anonymous mobile 1`] = `
       className="logo"
       href="http://localhost:18000/dashboard"
       itemType="http://schema.org/Organization"
+      title="edX"
     >
       <img
         alt="edX"
@@ -208,6 +210,7 @@ exports[`<Header /> renders correctly for authenticated desktop 1`] = `
       <a
         className="logo"
         href="http://localhost:18000/dashboard"
+        title="edX"
       >
         <img
           alt="edX"
@@ -379,6 +382,7 @@ exports[`<Header /> renders correctly for authenticated mobile 1`] = `
       className="logo"
       href="http://localhost:18000/dashboard"
       itemType="http://schema.org/Organization"
+      title="edX"
     >
       <img
         alt="edX"

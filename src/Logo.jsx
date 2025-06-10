@@ -7,7 +7,7 @@ const Logo = ({
   alt,
   ...attributes
 }) => (
-  <a href={href} className="logo" {...attributes}>
+  <a href={href} className="logo" title={alt} {...attributes}>
     <img className="d-block" src={src} alt={alt} />
   </a>
 );

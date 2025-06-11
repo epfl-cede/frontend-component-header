@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { getConfig } from '@edx/frontend-platform';
 import Cookies from 'universal-cookie';
 import { Icon } from '@openedx/paragon';
@@ -10,6 +10,7 @@ const themeCookie = 'indigo-toggle-dark';
 const themeCookieExpiry = 90; // days
 
 const ThemeToggleButton = ({ intl }) => {
+  const [isDarkThemeEnabled, setIsDarkThemeEnabled] = useState(false);
   const cookies = new Cookies();
   const isThemeToggleEnabled = getConfig().INDIGO_ENABLE_DARK_TOGGLE;
 
@@ -63,10 +64,12 @@ const ThemeToggleButton = ({ intl }) => {
     if (cookies.get(themeCookie) === 'dark') {
       document.body.classList.remove('indigo-dark-theme');
       removeDarkThemeFromiframes();
+      setIsDarkThemeEnabled(false);
       theme = 'light';
     } else {
       document.body.classList.add('indigo-dark-theme');
       addDarkThemeToIframes();
+      setIsDarkThemeEnabled(true);
       theme = 'dark';
     }
     cookies.set(themeCookie, theme, getCookieOptions(serverURL));
@@ -94,6 +97,7 @@ const ThemeToggleButton = ({ intl }) => {
         <label htmlFor="theme-toggle-checkbox" className="switch">
           <input id="theme-toggle-checkbox" defaultChecked={cookies.get(themeCookie) === 'dark'} onChange={onToggleTheme} onKeyUp={hanldeKeyUp} type="checkbox" title={intl.formatMessage(messages['header.user.theme'])} />
           <span className="slider round" />
+          <span id="theme-label" className="sr-only">{`Switch to ${isDarkThemeEnabled ? 'Light' : 'Dark'} Mode`}</span>
         </label>
       </div>
       <div className="dark-theme-icon"><Icon src={Nightlight} /></div>

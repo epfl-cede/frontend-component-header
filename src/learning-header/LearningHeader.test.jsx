@@ -4,6 +4,16 @@ import {
 } from '../setupTest';
 import { LearningHeader as Header } from '../index';
 
+jest.mock('react-responsive', () => ({
+  __esModule: true,
+  default: ({ minWidth, maxWidth, children }) => {
+    const screenWidth = 1200; // Simulate desktop
+    const matchesMin = minWidth !== undefined ? screenWidth >= minWidth : true;
+    const matchesMax = maxWidth !== undefined ? screenWidth <= maxWidth : true;
+    return matchesMin && matchesMax ? children : null;
+  },
+}));
+
 describe('Header', () => {
   beforeAll(async () => {
     // We need to mock AuthService to implicitly use `getAuthenticatedUser` within `AppContext.Provider`.

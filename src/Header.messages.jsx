@@ -21,6 +21,11 @@ const messages = defineMessages({
     defaultMessage: 'Schools & Partners',
     description: 'Link to the schools and partners landing page',
   },
+  'header.user.theme': {
+    id: 'header.user.theme',
+    defaultMessage: 'Toggle Theme',
+    description: 'Toggle between light and dark theme',
+  },
   'header.user.menu.dashboard': {
     id: 'header.user.menu.dashboard',
     defaultMessage: 'Dashboard',

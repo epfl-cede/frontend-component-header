@@ -2,7 +2,7 @@ name: Release CI
 on:
   push:
     branches:
-      - teak/indigo
+      - ulmo/indigo
 jobs:
   release:
     name: Release

@@ -2,7 +2,7 @@ name: Default CI
 on:
   push:
     branches:
-      - teak/indigo
+      - ulmo/indigo
   pull_request:
     branches:
       - "**"

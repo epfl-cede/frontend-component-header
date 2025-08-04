@@ -6,6 +6,16 @@ const messages = defineMessages({
     defaultMessage: 'Courses',
     description: 'Link to the learner course dashboard',
   },
+  'header.links.courses.all': {
+    id: 'header.links.courses.all',
+    defaultMessage: 'All courses',
+    description: 'Link to catalog SMS courses',
+  },
+  'header.links.courses.my': {
+    id: 'header.links.courses.my',
+    defaultMessage: 'My courses',
+    description: 'Link to catalog my courses',
+  },
   'header.links.programs': {
     id: 'header.links.programs',
     defaultMessage: 'Programs',
@@ -51,6 +61,16 @@ const messages = defineMessages({
     defaultMessage: 'Login',
     description: 'Login link',
   },
+  'header.user.menu.signin': {
+    id: 'header.user.menu.signin',
+    defaultMessage: 'Signin',
+    description: 'Sign link',
+  },
+  'header.user.menu.help': {
+    id: 'header.user.menu.help',
+    defaultMessage: 'Help',
+    description: 'Help link',
+  },
   'header.user.menu.register': {
     id: 'header.user.menu.register',
     defaultMessage: 'Sign Up',
@@ -73,7 +93,7 @@ const messages = defineMessages({
   },
   'header.label.account.menu.for': {
     id: 'header.label.account.menu.for',
-    defaultMessage: 'Account menu for {username}',
+    defaultMessage: 'Account menu for {user}',
     description: 'The aria label for the account menu trigger when the username is displayed in it',
   },
   'header.label.main.nav': {

@@ -18,6 +18,8 @@ import messages from './Header.messages';
 
 ensureConfig([
   'LMS_BASE_URL',
+  'CATALOG_BASE_URL',
+  'CATALOG_ORGANIZATION_NAME',
   'LOGOUT_URL',
   'LOGIN_URL',
   'SITE_NAME',
@@ -51,19 +53,34 @@ const Header = ({
 }) => {
   const { authenticatedUser, config } = useContext(AppContext);
 
-  const defaultMainMenu = [
+  const defaultMainMenu = config.CATALOG_BASE_URL === undefined ? [
     {
       type: 'item',
       href: `${config.LMS_BASE_URL}/dashboard`,
       content: intl.formatMessage(messages['header.links.courses']),
     },
+  ] : [
+    {
+      type: 'item',
+      href: `${config.CATALOG_BASE_URL}/courses/`,
+      content: intl.formatMessage(messages['header.links.courses.all']),
+    },
   ];
+
+  if (config.CATALOG_BASE_URL !== undefined && authenticatedUser !== null) {
+    defaultMainMenu.unshift({
+      type: 'item',
+      href: `${config.CATALOG_BASE_URL}/dashboard/`,
+      content: intl.formatMessage(messages['header.links.courses.my']),
+    });
+  }
+
   const defaultUserMenu = authenticatedUser === null ? [] : [{
     heading: '',
     items: [
       {
         type: 'item',
-        href: `${config.LMS_BASE_URL}/dashboard`,
+        href: config.CATALOG_BASE_URL ? `${config.CATALOG_BASE_URL}/dashboard/` : `${config.LMS_BASE_URL}/dashboard`,
         content: intl.formatMessage(messages['header.user.menu.dashboard']),
       },
       {
@@ -98,13 +115,15 @@ const Header = ({
     {
       type: 'item',
       href: config.LOGIN_URL,
-      content: intl.formatMessage(messages['header.user.menu.login']),
+      content: intl.formatMessage(messages['header.user.menu.signin']),
     },
+    /*
     {
       type: 'item',
       href: `${config.LMS_BASE_URL}/register`,
       content: intl.formatMessage(messages['header.user.menu.register']),
     },
+    */
   ];
 
   const props = {
@@ -113,6 +132,7 @@ const Header = ({
     logoDestination: `${config.LMS_BASE_URL}/dashboard`,
     loggedIn: authenticatedUser !== null,
     username: authenticatedUser !== null ? authenticatedUser.username : null,
+    name: authenticatedUser !== null ? authenticatedUser.name : null,
     avatar: authenticatedUser !== null ? authenticatedUser.avatar : null,
     mainMenu: getConfig().AUTHN_MINIMAL_HEADER ? [] : mainMenu,
     secondaryMenu: getConfig().AUTHN_MINIMAL_HEADER ? [] : secondaryMenu,

@@ -38,6 +38,7 @@ const LearningHeader = ({
           <LearningHelpSlot />
           <AuthenticatedUserDropdown
             username={authenticatedUser.username}
+            name={authenticatedUser.name}
           />
         </>
         )}

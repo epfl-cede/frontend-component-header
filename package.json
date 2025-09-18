@@ -1,6 +1,6 @@
 {
   "name": "@edly-io/indigo-frontend-component-header",
-  "version": "2.0.0",
+  "version": "3.4.0",
   "description": "The standard header for Open edX",
   "main": "dist/index.js",
   "publishConfig": {
@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "make build",
+    "prepare": "npm run build",
     "i18n_extract": "fedx-scripts formatjs extract",
     "lint": "fedx-scripts eslint --ext .js --ext .jsx .",
     "snapshot": "fedx-scripts jest --updateSnapshot",

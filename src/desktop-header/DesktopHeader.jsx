@@ -42,6 +42,7 @@ class DesktopHeader extends React.Component {
       userMenu,
       avatar,
       username,
+      displayname,
       intl,
     } = this.props;
 
@@ -53,7 +54,7 @@ class DesktopHeader extends React.Component {
           className="btn btn-outline-primary d-inline-flex align-items-center pl-2 pr-3"
         >
           <Avatar size="1.5em" src={avatar} alt="" className="mr-2" />
-          {username} <CaretIcon role="img" aria-hidden focusable="false" />
+          {displayname || username} <CaretIcon role="img" aria-hidden focusable="false" />
         </MenuTrigger>
         <MenuContent className="mb-0 dropdown-menu show dropdown-menu-right pin-right shadow py-2">
           <DesktopUserMenuSlot menu={userMenu} />
@@ -120,6 +121,7 @@ export const desktopHeaderDataShape = {
   logoDestination: PropTypes.string,
   avatar: PropTypes.string,
   username: PropTypes.string,
+  displayname: PropTypes.string,
   loggedIn: PropTypes.bool,
 };
 
@@ -133,6 +135,7 @@ DesktopHeader.propTypes = {
   logoDestination: desktopHeaderDataShape.logoDestinationmainMenu,
   avatar: desktopHeaderDataShape.avatarmainMenu,
   username: desktopHeaderDataShape.usernamemainMenu,
+  displayname: desktopHeaderDataShape.displaynamemainMenu,
   loggedIn: desktopHeaderDataShape.loggedInmainMenu,
 
   // i18n
@@ -149,6 +152,7 @@ DesktopHeader.defaultProps = {
   logoDestination: null,
   avatar: null,
   username: null,
+  displayname: null,
   loggedIn: false,
 };
 

@@ -135,3 +135,10 @@ $rounded-pill: 50rem  !default;
     border-radius: var(--pgn-size-rounded-pill, $rounded-pill);
   }
 }
+
+.site-header-desktop .logo {
+  padding: 0.1rem 0;
+  img {
+    height: 56px;
+  }
+}

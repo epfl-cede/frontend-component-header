@@ -137,8 +137,8 @@ $rounded-pill: 50rem  !default;
 }
 
 .site-header-desktop .logo {
-  padding: 0.1rem 0;
+  padding: 0.1rem 0 !important;
   img {
-    height: 56px;
+    height: 38px !important;
   }
 }

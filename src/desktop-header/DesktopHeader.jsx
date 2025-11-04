@@ -125,15 +125,16 @@ export const desktopHeaderDataShape = {
 
 DesktopHeader.propTypes = {
   mainMenu: desktopHeaderDataShape.mainMenu,
-  secondaryMenu: desktopHeaderDataShape.secondaryMenumainMenu,
-  userMenu: desktopHeaderDataShape.userMenumainMenu,
-  loggedOutItems: desktopHeaderDataShape.loggedOutItemsmainMenu,
-  logo: desktopHeaderDataShape.logomainMenu,
-  logoAltText: desktopHeaderDataShape.logoAltTextmainMenu,
-  logoDestination: desktopHeaderDataShape.logoDestinationmainMenu,
-  avatar: desktopHeaderDataShape.avatarmainMenu,
-  username: desktopHeaderDataShape.usernamemainMenu,
-  loggedIn: desktopHeaderDataShape.loggedInmainMenu,
+  secondaryMenu: desktopHeaderDataShape.secondaryMenu,
+  userMenu: desktopHeaderDataShape.userMenu,
+  loggedOutItems: desktopHeaderDataShape.loggedOutItems,
+  logo: desktopHeaderDataShape.logo,
+  logoAltText: desktopHeaderDataShape.logoAltText,
+  logoDestination: desktopHeaderDataShape.logoDestination,
+  avatar: desktopHeaderDataShape.avatar,
+  username: desktopHeaderDataShape.username,
+  name: desktopHeaderDataShape.name,
+  loggedIn: desktopHeaderDataShape.loggedIn,
 
   // i18n
   intl: intlShape.isRequired,

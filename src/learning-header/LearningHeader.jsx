@@ -41,6 +41,7 @@ const LearningHeader = ({
         {headerLogo}
         <div className="flex-grow-1 course-title-lockup d-flex" style={{ lineHeight: 1 }}>
           <CourseInfoSlot courseOrg={courseOrg} courseNumber={courseNumber} courseTitle={courseTitle} />
+          {/*
           <div className="nav-course">
             <a href={`${getConfig().LMS_BASE_URL}/dashboard`}>
               {intl.formatMessage(messages.mycourses)}
@@ -51,6 +52,7 @@ const LearningHeader = ({
               {intl.formatMessage(messages.discover)}
             </a>
           </div>
+          */}
         </div>
         <ThemeToggleButton />
         {showUserDropdown && authenticatedUser && (

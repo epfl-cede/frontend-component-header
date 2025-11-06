@@ -8,7 +8,7 @@ import LearningUserMenuSlot from '../plugin-slots/LearningUserMenuSlot';
 
 import messages from './messages';
 
-const AuthenticatedUserDropdown = ({ intl, username }) => {
+const AuthenticatedUserDropdown = ({ intl, username, name }) => {
   const dropdownItems = [
     /*
     {
@@ -52,7 +52,7 @@ const AuthenticatedUserDropdown = ({ intl, username }) => {
           <span className="line" />
         </div>
         <span data-hj-suppress className="d-none d-md-inline">
-          {username}
+          {name || username}
         </span>
       </Dropdown.Toggle>
       <Dropdown.Menu className="dropdown-menu-right">
@@ -65,6 +65,7 @@ const AuthenticatedUserDropdown = ({ intl, username }) => {
 AuthenticatedUserDropdown.propTypes = {
   intl: intlShape.isRequired,
   username: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default injectIntl(AuthenticatedUserDropdown);

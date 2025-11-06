@@ -35,6 +35,7 @@ const LearningHeader = ({
           <Responsive maxWidth={991}>
             <AuthenticatedUserDropdown
               username={authenticatedUser.username}
+              name={authenticatedUser.name}
             />
           </Responsive>
         )}
@@ -61,6 +62,7 @@ const LearningHeader = ({
             <Responsive minWidth={992}>
               <AuthenticatedUserDropdown
                 username={authenticatedUser.username}
+                name={authenticatedUser.name}
               />
             </Responsive>
           </>

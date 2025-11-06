@@ -10,6 +10,7 @@ import messages from './messages';
 
 const AuthenticatedUserDropdown = ({ intl, username }) => {
   const dropdownItems = [
+    /*
     {
       message: intl.formatMessage(messages.mycourses),
       href: `${getConfig().LMS_BASE_URL}/dashboard`,
@@ -18,6 +19,7 @@ const AuthenticatedUserDropdown = ({ intl, username }) => {
       message: intl.formatMessage(messages.discover),
       href: `${getConfig().LMS_BASE_URL}/courses`,
     },
+    */
     {
       message: intl.formatMessage(messages.dashboard),
       href: `${getConfig().LMS_BASE_URL}/dashboard`,

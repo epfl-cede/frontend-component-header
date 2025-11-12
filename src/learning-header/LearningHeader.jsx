@@ -27,6 +27,10 @@ const LearningHeader = ({
     />
   );
 
+  const displayname = (getConfig().CATALOG_BASE_URL && authenticatedUser.name)
+    ? authenticatedUser.name
+    : authenticatedUser.username;
+
   return (
     <header className="learning-header customise indigo-header-version">
       <a className="sr-only sr-only-focusable" href="#main-content">{intl.formatMessage(messages.skipNavLink)}</a>
@@ -34,8 +38,7 @@ const LearningHeader = ({
         {showUserDropdown && authenticatedUser && (
           <Responsive maxWidth={991}>
             <AuthenticatedUserDropdown
-              username={authenticatedUser.username}
-              name={authenticatedUser.name}
+              username={displayname}
             />
           </Responsive>
         )}
@@ -61,8 +64,7 @@ const LearningHeader = ({
             <LearningHelpSlot />
             <Responsive minWidth={992}>
               <AuthenticatedUserDropdown
-                username={authenticatedUser.username}
-                name={authenticatedUser.name}
+                username={displayname}
               />
             </Responsive>
           </>

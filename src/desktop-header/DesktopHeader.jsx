@@ -46,6 +46,8 @@ class DesktopHeader extends React.Component {
       intl,
     } = this.props;
 
+    const displayname = (getConfig().CATALOG_BASE_URL && name) ? name : username;
+
     return (
       <Menu transitionClassName="menu-dropdown" transitionTimeout={250}>
         <MenuTrigger
@@ -54,7 +56,7 @@ class DesktopHeader extends React.Component {
           className="btn btn-outline-primary d-inline-flex align-items-center pl-2 pr-3"
         >
           <Avatar size="1.5em" src={avatar} alt="" className="mr-2" />
-          {name || username} <CaretIcon role="img" aria-hidden focusable="false" />
+          {displayname} <CaretIcon role="img" aria-hidden focusable="false" />
         </MenuTrigger>
         <MenuContent className="mb-0 dropdown-menu show dropdown-menu-right pin-right shadow py-2">
           <DesktopUserMenuSlot menu={userMenu} />

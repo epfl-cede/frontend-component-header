@@ -51,13 +51,30 @@ const Header = ({
 }) => {
   const { authenticatedUser, config } = useContext(AppContext);
 
-  const defaultMainMenu = [
-    {
-      type: 'item',
-      href: `${config.LMS_BASE_URL}/dashboard`,
-      content: intl.formatMessage(messages['header.links.courses']),
-    },
-  ];
+  let defaultMainMenu = [];
+  const catalogUrl = getConfig().CATALOG_BASE_URL;
+  if (catalogUrl) {
+    defaultMainMenu = [
+      {
+        type: 'item',
+        href: `${catalogUrl}/dashboard/`,
+        content: intl.formatMessage(messages['header.links.my_courses']),
+      },
+      {
+        type: 'item',
+        href: `${catalogUrl}/courses/`,
+        content: intl.formatMessage(messages['header.links.all_courses']),
+      },
+    ];
+  } else {
+    defaultMainMenu = [
+      {
+        type: 'item',
+        href: `${config.LMS_BASE_URL}/dashboard`,
+        content: intl.formatMessage(messages['header.links.courses']),
+      },
+    ];
+  }
   const defaultUserMenu = authenticatedUser === null ? [] : [{
     heading: '',
     items: [

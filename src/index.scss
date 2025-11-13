@@ -136,7 +136,8 @@ $rounded-pill: 50rem  !default;
   }
 }
 
-.site-header-desktop .logo {
+.site-header-desktop .logo,
+.learning-header .logo {
   padding: 0.1rem 0 !important;
   img {
     height: 38px !important;

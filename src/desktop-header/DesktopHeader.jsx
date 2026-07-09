@@ -20,7 +20,6 @@ import { desktopUserMenuDataShape } from './DesktopHeaderUserMenu';
 import messages from '../Header.messages';
 
 // Assets
-import { CaretIcon } from '../Icons';
 
 class DesktopHeader extends React.Component {
   constructor(props) { // eslint-disable-line no-useless-constructor
@@ -56,7 +55,7 @@ class DesktopHeader extends React.Component {
           className="btn btn-outline-primary d-inline-flex align-items-center pl-2 pr-3"
         >
           <Avatar size="1.5em" src={avatar} alt="" className="mr-2" />
-          {displayname} <CaretIcon role="img" aria-hidden focusable="false" />
+          {displayname}
         </MenuTrigger>
         <MenuContent className="mb-0 dropdown-menu show dropdown-menu-right pin-right shadow py-2">
           <DesktopUserMenuSlot menu={userMenu} />
